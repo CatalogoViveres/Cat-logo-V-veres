@@ -725,25 +725,25 @@
         const item = document.createElement('div');
         item.className = 'search-result-item';
         item.textContent = producto.nombreCompleto;
-        item.onclick = function() {
-          // Buscar el checkbox correspondiente y marcarlo
-          const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-          for (let checkbox of checkboxes) {
-            if (checkbox.getAttribute('onchange').includes(`'${producto.nombreCompleto}'`)) {
-              checkbox.checked = !checkbox.checked;
-              marcarProducto(checkbox, producto.nombreCompleto);
-              // Scroll al producto
-              checkbox.closest('.product').scrollIntoView({ behavior: 'smooth', block: 'center' });
-              // Destacar temporalmente
-              checkbox.closest('.product').style.animation = 'none';
-              setTimeout(() => {
-                checkbox.closest('.product').style.animation = 'destacarProducto 1.5s';
-              }, 10);
-              break;
-            }
-          }
-          cerrarBuscador();
-        };
+       item.onclick = function() {
+  // Buscar el checkbox correspondiente y marcarlo
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  for (let checkbox of checkboxes) {
+    if (checkbox.getAttribute('onchange').includes(`'${producto.nombreCompleto}'`)) {
+      //checkbox.checked = !checkbox.checked;  <--- ELIMINA ESTA LÍNEA
+      marcarProducto(checkbox, producto.nombreCompleto);
+      // Scroll al producto
+      checkbox.closest('.product').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // Destacar temporalmente
+      checkbox.closest('.product').style.animation = 'none';
+      setTimeout(() => {
+        checkbox.closest('.product').style.animation = 'destacarProducto 1.5s';
+      }, 10);
+      break;
+    }
+  }
+  cerrarBuscador();
+};
         resultsContainer.appendChild(item);
       });
 
