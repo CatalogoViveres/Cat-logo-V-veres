@@ -677,7 +677,7 @@
       window.open(url, '_blank');
     }
 
-    // Funcionalidad del buscador
+        // Funcionalidad del buscador
     function mostrarBuscador() {
       const modal = document.getElementById('searchModal');
       modal.style.display = 'flex';
@@ -688,6 +688,20 @@
       document.getElementById('searchModal').style.display = 'none';
       document.getElementById('searchResults').innerHTML = '';
       document.getElementById('searchInput').value = '';
+    }
+
+    // Cerrar el modal al hacer clic fuera del contenedor de búsqueda
+    window.addEventListener('click', function(event) {
+      const modal = document.getElementById('searchModal');
+      if (event.target == modal) {
+        cerrarBuscador();
+      }
+    });
+
+    // Eliminar la X para cerrar el buscador
+    const closeButton = document.querySelector('.close-search');
+    if (closeButton) {
+      closeButton.remove();
     }
 
     // Crear lista plana de todos los productos para búsqueda
@@ -701,6 +715,7 @@
         });
       });
     });
+
 
     // Función de búsqueda
     document.getElementById('searchInput').addEventListener('input', function(e) {
