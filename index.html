@@ -566,26 +566,6 @@
       window.open(url, '_blank');
     }
 
- function buscar() {
-  const textoBusqueda = document.getElementById('search-input').value.toLowerCase();
-  const productos = document.querySelectorAll('.product');
-
-  productos.forEach(producto => {
-    const nombreProducto = producto.querySelector('h3').textContent.toLowerCase();
-    if (nombreProducto.includes(textoBusqueda)) {
-      producto.style.display = 'block';
-    } else {
-      producto.style.display = 'none';
-    }
-  });
-}
-
-
-
-
-
-
-
     
   </script>
 </body>
